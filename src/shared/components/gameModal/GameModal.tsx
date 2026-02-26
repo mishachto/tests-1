@@ -5,15 +5,26 @@ import { GameModalProps } from "@shared/types/modal";
 
 export const GameModal = ({ isOpen, onClose, gameUrl }: GameModalProps) => {
   return (
-    <Dialog open={isOpen} onClose={onClose} maxWidth="lg" fullWidth>
+    <Dialog
+      open={isOpen}
+      onClose={onClose}
+      fullScreen
+      slotProps={{
+        paper: {
+          sx: {
+            margin: 0,
+            width: "100%",
+            height: "100%",
+            overflow: "hidden",
+          },
+        },
+      }}
+    >
       <Box
         sx={{
           position: "relative",
           width: "100%",
-          height: "600px",
-          "@media (max-width: 768px)": {
-            height: "100vh",
-          },
+          height: "100vh",
         }}
       >
         <IconButton
